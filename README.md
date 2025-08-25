@@ -16,6 +16,3 @@ def saudacao(nome: str):
 @app.get("/status")
 def status():
     return {"status": "online", "versao": "1.0.0"}
-fastapi
-uvicorn
-uvicorn app:app --reload
