@@ -1,11 +1,19 @@
-# Meu Projeto CI/CD
+from fastapi import FastAPI
 
-Este repositório foi criado para a disciplina de DevOps.
+app = FastAPI()
 
-## Objetivo
-Aprender a criar um fluxo completo de CI/CD no GitHub.
+# Rota raiz
+@app.get("/")
+def read_root():
+    return {"mensagem": "API de exemplo para CI/CD"}
 
-## Tecnologias
-- GitHub
-- Git
-- Python
+# Rota de saudação
+@app.get("/saudacao/{nome}")
+def saudacao(nome: str):
+    return {"mensagem": f"Olá, {nome}! Bem-vindo à API de CI/CD 🚀"}
+
+# Rota de status
+@app.get("/status")
+def status():
+    return {"status": "online", "versao": "1.0.0"}
+
